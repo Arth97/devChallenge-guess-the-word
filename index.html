@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Guess the Word - devchallenges.io</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="any">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Guess the Word - devchallenges.io</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="any">
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-    </header>
 
-    <main>
-    </main>
+	<main>
+		<div class="card">
+			<p>Word Scramblle</p>
+			<div>
+				test-word
+			</div>
+			<div>
+				<span>Tries(n/5): · · · · ·</span>
+				<span>Mistakes: </span>
+			</div>
+			<div class="letters">
 
-    <footer>
-    </footer>
+			</div>
+			<div class="flex gap-5">
+				<button class="action-buttons">Random</button>
+				<button class="action-buttons">Reset</button>
+			</div>
+		</div>
+	</main>
 
-    <script src="script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>

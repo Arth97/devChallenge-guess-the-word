@@ -20,17 +20,9 @@ body {
 	min-height: 100vh;
 	max-width: 1280px;
 	margin: 0 auto;
-	background: #020617;
-	color: #cbd5e1;
-	padding: 4rem;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	flex-direction: column;
-}
-
-header {
-	display: flex;
-	justify-content: space-between;
 }
 
 main {
@@ -40,6 +32,26 @@ main {
 	align-items: center;
 	row-gap: 0.5rem;
 	column-gap: 1.5rem;
+}
+
+.card {
+	height: 385px;
+	width: 365px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 15px;
+	background-color: #4A5567;
+	padding: 25px;
+}
+
+.action-buttons {
+	height: 35px;
+	width: fit-content;
+	border-radius: 10px;
+	background-color: #C951E7;
+	padding: 10px;
 }
 
 @media screen and (min-width: 720px) {
