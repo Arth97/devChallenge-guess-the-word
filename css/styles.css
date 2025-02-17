@@ -46,6 +46,13 @@ main {
 	padding: 25px;
 }
 
+.input-word {
+	width: 320px;
+	height: 65px;
+	border-radius: 5px;
+	background-color: #97A3B6;
+}
+
 .action-buttons {
 	height: 35px;
 	width: fit-content;
