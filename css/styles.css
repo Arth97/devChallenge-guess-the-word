@@ -19,12 +19,13 @@ a {
 body {
 	font-family: 'Outfit', sans-serif;
 	min-height: 100vh;
-	max-width: 1280px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	color: #F2F5F9;
+	background: url('../images/bg-guess-the-word.jpg') center center no-repeat;
+	background-size: cover;
 }
 
 .text-large {
@@ -56,7 +57,7 @@ main {
 	align-items: center;
 	flex-direction: column;
 	border-radius: 15px;
-	background-color: #4A5567;
+	background-color: #192239;
 	padding: 25px;
 }
 
@@ -64,20 +65,42 @@ main {
 	width: 320px;
 	height: 65px;
 	border-radius: 5px;
-	background-color: #97A3B6;
-	box-shadow: 0px 5px 0 0 #030616;
+	background-color: #4A5567;
+	box-shadow: 0px 4px 0px 0px #030616;
+	text-align: center;
+}
+
+.dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
 }
 
 .dot-on {
-	width: 5px;
-	height: 5px;
 	background-color: #7429C6;
 }
 
 .dot-off {
-	width: 5px;
-	height: 5px;
 	background-color: #97A3B6;
+}
+
+.letters {
+	width: 100%t;
+	height: fit-content;
+	display: flex;
+	padding: 10px;
+	gap: 5px;
+	flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letter-input {
+	height: 40px;
+	width: 40px;
+	border-radius: 5px;
+	border: 3px solid #4A5567;
+	background-color: #192239;
+	text-align: center;
 }
 
 .button-random, .button-reset {
@@ -85,7 +108,7 @@ main {
 	padding: 7px;
 	border-radius: 10px;
 	background-color: #C951E7;
-	box-shadow: 0px 5px 0 0 #672171;
+	filter: drop-shadow(0px 4px 0px #7b248a);
 	font-size: 0.875rem;
 }
 

@@ -12,12 +12,18 @@
 
 	<main>
 		<div class="card">
-			<p>Word Scramblle</p>
-			<input id="input-word" class="input-word" type="text">
-			<div>
-				<span>Tries(n/5): · · · · ·</span>
-				<div class="dot-on"></div>
-				<span>Mistakes: </span>
+			<img src="./images/word-scramblle-logo.svg" alt="Word Logo">
+			<input id="input-word" class="input-word text-large" type="text">
+			<div class="w-full flex justify-between">
+				<div class="w-full flex items-center justify-between text-small">
+					Tries(n/5):
+					<div class="dot dot-on"></div>
+					<div class="dot dot-on"></div>
+					<div class="dot dot-on"></div>
+					<div class="dot dot-on"></div>
+					<div class="dot dot-on"></div>
+				</div>
+				<div class="w-full flex justify-end text-small">Mistakes: </div>
 			</div>
 			<div class="letters">
 
@@ -29,6 +35,6 @@
 		</div>
 	</main>
 
-	<script src="script.js"></script>
+	<script src="./js/script.js"></script>
 </body>
 </html>
