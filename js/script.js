@@ -3,7 +3,7 @@
 const words = ["example", "javascript", "coding", "challenge"];
 let currentWord = "";
 let tries = 0;
-let mistakes = 0;
+let mistakes = [];
 
 function scrambleWord(word) {
 	let letters = word.split('');
@@ -16,17 +16,12 @@ function scrambleWord(word) {
 }
 
 function generateRandomWord() {
-	// Seleccionar una palabra aleatoria del array
 	currentWord = words[Math.floor(Math.random() * words.length)];
-	// Mostrar la palabra mezclada en el input
 	const scrambled = scrambleWord(currentWord);
-	console.log("scrambled", scrambled)
 	document.getElementById('input-word').value = scrambled;
-	// Crear los campos de entrada
 	createInputFields(currentWord.length);
-	// Reiniciar contadores
 	tries = 0;
-	mistakes = 0;
+	mistakes = [];
 	updateUI();
 }
 
@@ -51,27 +46,19 @@ function handleInput(event) {
 	const value = input.value.toLowerCase();
 	
 	if (value) {
-		// Verificar si la letra es correcta
-		if (value === currentWord[index]) {
-			input.classList.add('correct');
-			input.classList.remove('incorrect');
-		} else {
-			input.classList.add('incorrect');
-			input.classList.remove('correct');
-			mistakes++;
+		if (value !== currentWord[index]) {
+			mistakes.push(value);
 		}
 		
-		// Mover al siguiente input
 		const inputs = document.querySelectorAll('.letter-input');
 		const nextInput = inputs[index + 1];
 		if (nextInput) {
 			nextInput.focus();
 		}
 		
-		// Verificar si todas las letras están completas
 		checkWin();
 	}
-	updateUI();
+	// updateUI();
 }
 
 function checkWin() {
@@ -90,39 +77,39 @@ function checkWin() {
 	if (completed) {
 		tries++;
 		if (allCorrect) {
-			alert('¡Felicitaciones! Has adivinado la palabra correctamente.');
+			alert('🎉 Success');
 		} else if (tries >= 5) {
-			alert('Game Over. La palabra correcta era: ' + currentWord);
+			alert('Game Over. Correct word is: ' + currentWord);
 		}
 		updateUI();
 	}
 }
 
 function updateUI() {
-	// Actualizar los puntos de intentos
+	const triesElement = document.querySelector('.text-small:first-child');
+	triesElement.textContent = `Tries(${tries}/5): `;
+
 	const dots = document.querySelectorAll('.dot');
 	dots.forEach((dot, index) => {
-		dot.classList.toggle('dot-on', index >= tries);
+		if (tries>index)
+		dot.classList.remove('dot-off');
+		dot.classList.add('dot-on');
 	});
 	
-	// Actualizar el contador de errores
 	const mistakesElement = document.querySelector('.text-small:last-child');
-	mistakesElement.textContent = `Mistakes: ${mistakes}`;
+	const mistakesJoined = mistakes.join(', ')
+	mistakesElement.textContent = `Mistakes: ${mistakesJoined}`;
 }
 
 function resetGame() {
-	// Limpiar todos los campos
-	document.querySelectorAll('.letter-input').forEach(input => {
-		input.value = '';
-		input.classList.remove('correct', 'incorrect');
-	});
-	
-	// Reiniciar contadores
 	tries = 0;
-	mistakes = 0;
-	
-	// Generar nueva palabra
+	mistakes = [];
 	generateRandomWord();
+	const dots = document.querySelectorAll('.dot');
+	dots.forEach((dot, index) => {
+		dot.classList.add('dot-off');
+		dot.classList.remove('dot-on');
+	});
 }
 
 document

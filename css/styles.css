@@ -71,8 +71,8 @@ main {
 }
 
 .dot {
-	width: 5px;
-	height: 5px;
+	width: 7px;
+	height: 7px;
 	border-radius: 50%;
 }
 
@@ -81,7 +81,7 @@ main {
 }
 
 .dot-off {
-	background-color: #97A3B6;
+	background-color: #4A5567;
 }
 
 .letters {
