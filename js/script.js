@@ -46,19 +46,13 @@ function handleInput(event) {
 	const value = input.value.toLowerCase();
 	
 	if (value) {
-		if (value !== currentWord[index]) {
-			mistakes.push(value);
-		}
-		
 		const inputs = document.querySelectorAll('.letter-input');
 		const nextInput = inputs[index + 1];
 		if (nextInput) {
 			nextInput.focus();
 		}
-		
 		checkWin();
 	}
-	// updateUI();
 }
 
 function checkWin() {
@@ -75,11 +69,17 @@ function checkWin() {
 	});
 	
 	if (completed) {
+		inputs.forEach((input, index) => {
+			if (input.value.toLowerCase() !== currentWord[index])
+				mistakes.push(input.value)
+		});
 		tries++;
 		if (allCorrect) {
 			alert('🎉 Success');
 		} else if (tries >= 5) {
 			alert('Game Over. Correct word is: ' + currentWord);
+		} else {
+			completed = false;
 		}
 		updateUI();
 	}
@@ -99,6 +99,7 @@ function updateUI() {
 	const mistakesElement = document.querySelector('.text-small:last-child');
 	const mistakesJoined = mistakes.join(', ')
 	mistakesElement.textContent = `Mistakes: ${mistakesJoined}`;
+	mistakes = [];
 }
 
 function resetGame() {

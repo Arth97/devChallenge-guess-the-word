@@ -85,7 +85,7 @@ main {
 }
 
 .letters {
-	width: 100%t;
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	padding: 10px;
